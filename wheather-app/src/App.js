@@ -6,7 +6,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <WeatherLocation></WeatherLocation>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <WeatherLocation></WeatherLocation>
+            </div>
+            <div className="col-md-3">
+
+              <WeatherLocation></WeatherLocation>
+            </div>
+            <div className="col-md-3">
+              <WeatherLocation></WeatherLocation>
+            </div>
+            <div className="col-md-3">
+              <WeatherLocation></WeatherLocation>
+            </div>
+          </div>
+        </div>
+       
       </div>
     );
   }
