@@ -11,7 +11,7 @@ class App extends Component {
             <div className="col-md-3">
               <WeatherLocation></WeatherLocation>
             </div>
-            <div className="col-md-3">
+            {/* <div className="col-md-3">
 
               <WeatherLocation></WeatherLocation>
             </div>
@@ -20,7 +20,7 @@ class App extends Component {
             </div>
             <div className="col-md-3">
               <WeatherLocation></WeatherLocation>
-            </div>
+            </div> */}
           </div>
         </div>
        
