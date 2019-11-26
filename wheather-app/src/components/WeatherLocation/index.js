@@ -1,27 +1,19 @@
 import React, { Component } from "react";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import PropTypes from "prop-types";
 import tranformWeather from "./../../services/transformWeather";
+import getUrlWeatherByCity from "./../../services/getUrlWeatherByCity"
 import Location from "./Location";
 import WeatherData from "./WeatherData";
 import "./styles.css";
-import {  CLOUDY } from "./../../constants/weathers";
-
-import {api_weather} from "./../../constants/apiUrl"
-
-const data = {
-  tempeture: 5,
-  weatherState: CLOUDY,
-  humidity: 10,
-  wind: "10 m/s"
-};
-
-
 
 class WeatherLocation extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { city } = props;
     this.state = {
-      city: "Medellin",
-      data: data
+      city,
+      data: null
     };
   }
 
@@ -38,9 +30,15 @@ class WeatherLocation extends Component {
     return data;
   };
 
+  //WARNING! To be deprecated in React v17. Use componentDidMount instead.
+  componentWillMount() {
+    this.handleUpdateClick();
+  }
+
   handleUpdateClick = () => {
-    console.log(api_weather);
-    fetch(api_weather)
+    const url=getUrlWeatherByCity(this.state.city);
+    console.log(url);
+    fetch(url)
       .then(message => {
         return message.json();
       })
@@ -61,10 +59,18 @@ class WeatherLocation extends Component {
     return (
       <div className="weatherLocationCont">
         <Location city={city}></Location>
-        <WeatherData data={data}></WeatherData>
-        <button onClick={this.handleUpdateClick}>Actualizar</button>
+        {data ? (
+          <WeatherData data={data}></WeatherData>
+        ) : (
+          <CircularProgress syze={50}></CircularProgress>
+        )}
       </div>
     );
   }
 }
+
+WeatherLocation.propType = {
+  city: PropTypes.toString.isRequired
+};
+
 export default WeatherLocation;

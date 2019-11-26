@@ -1,29 +1,15 @@
-import React, { Component } from 'react';
-import WeatherLocation from './components/WeatherLocation';
-import './App.css';
+import React, { Component } from "react";
+import WeatherLocation from "./components/WeatherLocation";
+import "./App.css";
+import LocationList from "./components/locationList";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <WeatherLocation></WeatherLocation>
-            </div>
-            {/* <div className="col-md-3">
-
-              <WeatherLocation></WeatherLocation>
-            </div>
-            <div className="col-md-3">
-              <WeatherLocation></WeatherLocation>
-            </div>
-            <div className="col-md-3">
-              <WeatherLocation></WeatherLocation>
-            </div> */}
-          </div>
+          <LocationList></LocationList>
         </div>
-       
       </div>
     );
   }
