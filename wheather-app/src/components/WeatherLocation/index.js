@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PropTypes from "prop-types";
 import tranformWeather from "./../../services/transformWeather";
-import getUrlWeatherByCity from "./../../services/getUrlWeatherByCity"
+import getUrlWeatherByCity from "./../../services/getUrlWeatherByCity";
 import Location from "./Location";
 import WeatherData from "./WeatherData";
 import "./styles.css";
@@ -20,7 +20,6 @@ class WeatherLocation extends Component {
   getData = weather_data => {
     const { humidity, temp } = weather_data.main;
     const { speed } = weather_data.wind;
-
     const data = {
       tempeture: temp,
       weatherState: tranformWeather(weather_data),
@@ -36,7 +35,7 @@ class WeatherLocation extends Component {
   }
 
   handleUpdateClick = () => {
-    const url=getUrlWeatherByCity(this.state.city);
+    const url = getUrlWeatherByCity(this.state.city);
     console.log(url);
     fetch(url)
       .then(message => {

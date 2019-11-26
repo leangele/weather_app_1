@@ -6,7 +6,7 @@ const LocationList = () => {
   <div className="row">
     <div className="col-md-3">
       <WeatherLocation city="bogota"></WeatherLocation>
-      <WeatherLocation city="mexico"></WeatherLocation>
+      {/* <WeatherLocation city="mexico"></WeatherLocation> */}
     </div>
   </div>
 
